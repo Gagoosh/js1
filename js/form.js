@@ -5,22 +5,24 @@ botaoAdicionar.onclick = function(e){
 
 	var form = document.querySelector("#form-adiciona");
 	var paciente = getPacienteForm(form);
-
 	var erros = validaPaciente(paciente);
 	if(erros.length > 0){
 		exibeErro(erros);
 		return;
 	}
 
-	var pacienteTr = buildTr(paciente);
-
-	var tabela = document.querySelector("#tabela-pacientes");
-
-	tabela.appendChild(pacienteTr);
+ 	addNaTabela(paciente);
 
 	form.reset();
 	document.querySelector("#mensagem-erro").innerHTML = "";
 };
+
+// Adiciona pacientes na tabela
+function addNaTabela(paciente){
+	var pacienteTr = buildTr(paciente);
+	var tabela = document.querySelector("#tabela-pacientes");
+	tabela.appendChild(pacienteTr);
+}
 
 // Pega valores do formulário e retorna-os em um objeto "paciente"
 function getPacienteForm(form){
@@ -56,6 +58,7 @@ function buildTd(dado,classe){
 	return td;
 }
 
+
 function validaPaciente(paciente){
 	var erros = [];
 
@@ -78,6 +81,7 @@ function validaPaciente(paciente){
 	return erros;
 }
 
+// Exibe os erros retornados pela funcão validaPaciente(paciente);
 function exibeErro(e){
 	var ul = document.querySelector("#mensagem-erro");
 	ul.innerHTML = "";

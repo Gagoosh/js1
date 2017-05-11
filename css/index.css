@@ -140,8 +140,8 @@ button[disabled=disabled], button:disabled {
 }
 
 .fadeOut{
-	-webkit-animation: vermelho 0.5s;
-	animation: vermelho 0.5s;
+	opacity: 0;
+	transition: 0.5s;
 }
 
 @-webkit-keyframes vermelho{
@@ -161,4 +161,14 @@ button[disabled=disabled], button:disabled {
 	100%{
 		background-color: lightcoral;
 	}
+}
+
+#filtrar-tabela{
+	width: 200px;
+	height: 35px;
+	margin-bottom: 10px;
+}
+
+.invisivel{
+	display: none;
 }
